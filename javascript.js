@@ -24,6 +24,9 @@ function generateSketchGrid(size) {
         else {
             sketchDiv.style.backgroundColor = "rgb(0, 0, 0)"
         }
+        if (darkenColors === true) {
+            sketchDiv.style.opacity = parseFloat(sketchDiv.style.opacity) + 0.1
+        }
     })
     sketchContainer.appendChild(sketchDiv)
     }
@@ -40,6 +43,9 @@ function clearBoard() {
     const sketchDivs = sketchContainer.children
     for (const sketchDiv of sketchDivs) {
         sketchDiv.style.backgroundColor = "#bcbdc6"
+        if (darkenColors === true) {
+            sketchDiv.style.opacity = 0
+        }
     }
 }
 
@@ -58,6 +64,15 @@ colorRandomizerCheckbox.addEventListener("change", event => {
 progressiveDarkeningCheckbox.addEventListener("change", event => {
     clearBoard()
     darkenColors = event.target.checked
+    const sketchDivs = sketchContainer.children
+    for (const sketchDiv of sketchDivs) {
+        if (event.target.checked) {
+        sketchDiv.style.opacity = 0
+        }
+        else {
+            sketchDiv.style.opacity = 1
+        }
+    }
 })
 
 shakeButton.addEventListener("click", () => {

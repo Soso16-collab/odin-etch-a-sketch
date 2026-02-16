@@ -1,5 +1,21 @@
+#title {
+    color: #bf9031;
+    text-align: center;
+    margin-top: 0px;
+}
+
+#game-container {
+    display: flex;
+    justify-content: center;
+}
+
+#controls {
+    margin: 20px;
+}
+
 #sketch-container {
     display: flex;
+    flex-shrink: 0;
     flex-flow: row wrap;
     width: 600px;
     height: 600px;
@@ -7,4 +23,8 @@
     margin: auto;
 }
 
-/* title color: #bf9031 */
+#dimension-label,
+#dimension-input,
+#shake-button {
+    margin: 5px;
+}

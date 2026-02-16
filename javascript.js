@@ -20,6 +20,8 @@ function generateSketchGrid(size) {
 }
 
 dimensionInput.addEventListener("input", event => {
+    if (event.target.value < 1) event.target.value = 1
+    if (event.target.value > 100) event.target.value = 100
     sketchContainer.replaceChildren()
     generateSketchGrid(event.target.value)
 })

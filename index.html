@@ -8,11 +8,14 @@
     <script src="javascript.js" defer></script>
 </head>
 <body>
-    <form>
-        <label for="dimension-input">Length and Width:</label>
+    <h1 id="title">Etch-a-Sketch</h1>
+    <div id="game-container">
+    <div id="controls">
+        <label id="dimension-label" for="dimension-input">Length and Width (1-100):</label>
         <input id="dimension-input" type="number" min="1" max="100" value="16">
-    </form>
+        <button id="shake-button">Shake</button>
+    </div>
     <div id="sketch-container"></div>
-    <button id="shake-button">Shake</button>
+    </div>
 </body>
 </html>

@@ -1,7 +1,10 @@
 #sketch-container {
     display: flex;
     flex-flow: row wrap;
-    width: 960px;
-    height: 960px;
-    border: 2px solid black;
+    width: 600px;
+    height: 600px;
+    border: 50px solid #ce171a;
+    margin: auto;
 }
+
+/* title color: #bf9031 */

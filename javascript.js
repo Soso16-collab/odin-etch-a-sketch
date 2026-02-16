@@ -6,9 +6,12 @@ function generateSketchGrid(size) {
     for (let i = 0; i < totalGridCount; i++) {
     const sketchDiv = document.createElement("div")
     sketchDiv.style.boxSizing = "border-box"
-    sketchDiv.style.width = `${(960/size)}px`
-    sketchDiv.style.height = `${960/size}px`
-    sketchDiv.style.border = "2px solid red"
+    sketchDiv.style.width = `${(600/size)}px`
+    sketchDiv.style.height = `${600/size}px`
+    sketchDiv.style.backgroundColor = "#bcbdc6"
+    sketchDiv.addEventListener("mouseenter", () => {
+        sketchDiv.style.backgroundColor = "black"
+    })
     sketchContainer.appendChild(sketchDiv)
     }
 }

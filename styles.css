@@ -1,0 +1,7 @@
+#sketch-container {
+    display: flex;
+    flex-flow: row wrap;
+    width: 960px;
+    height: 960px;
+    border: 2px solid black;
+}

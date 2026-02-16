@@ -1,5 +1,9 @@
 const sketchContainer = document.querySelector("#sketch-container")
 const dimensionInput = document.querySelector("#dimension-input")
+const colorRandomizerCheckbox = document.querySelector("#color-randomizer-input")
+const progressiveDarkeningCheckbox = document.querySelector("#progressive-darkening-input")
+let randomizeColors = false
+let darkenColors = false
 const shakeButton = document.querySelector("#shake-button")
 
 function generateSketchGrid(size) {
@@ -13,9 +17,29 @@ function generateSketchGrid(size) {
     sketchDiv.style.backgroundColor = "#bcbdc6"
     sketchDiv.style.border = "2px solid black"
     sketchDiv.addEventListener("mouseenter", () => {
-        sketchDiv.style.backgroundColor = "black"
+        if (randomizeColors === true) {
+            let newColor = randomColor()
+            sketchDiv.style.backgroundColor = newColor
+        }
+        else {
+            sketchDiv.style.backgroundColor = "rgb(0, 0, 0)"
+        }
     })
     sketchContainer.appendChild(sketchDiv)
+    }
+}
+
+function randomColor() {
+    const r = Math.floor(Math.random() * 256)
+    const g = Math.floor(Math.random() * 256)
+    const b = Math.floor(Math.random() * 256)
+    return `rgb(${r}, ${g}, ${b})`
+}
+
+function clearBoard() {
+    const sketchDivs = sketchContainer.children
+    for (const sketchDiv of sketchDivs) {
+        sketchDiv.style.backgroundColor = "#bcbdc6"
     }
 }
 
@@ -26,11 +50,18 @@ dimensionInput.addEventListener("input", event => {
     generateSketchGrid(event.target.value)
 })
 
+colorRandomizerCheckbox.addEventListener("change", event => {
+    clearBoard()
+    randomizeColors = event.target.checked
+})
+
+progressiveDarkeningCheckbox.addEventListener("change", event => {
+    clearBoard()
+    darkenColors = event.target.checked
+})
+
 shakeButton.addEventListener("click", () => {
-    const sketchDivs = sketchContainer.children
-    for (const sketchDiv of sketchDivs) {
-        sketchDiv.style.backgroundColor = "#bcbdc6"
-    }
+    clearBoard()
 })
 
 generateSketchGrid(16)

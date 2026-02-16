@@ -1,9 +1,9 @@
 const sketchContainer = document.querySelector("#sketch-container")
 const dimensionInput = document.querySelector("#dimension-input")
+const shakeButton = document.querySelector("#shake-button")
 
 function generateSketchGrid(size) {
     const totalGridCount = size * size
-    console.log(totalGridCount)
     for (let i = 0; i < totalGridCount; i++) {
     const sketchDiv = document.createElement("div")
     sketchDiv.classList.add("sketch-div")
@@ -22,6 +22,13 @@ function generateSketchGrid(size) {
 dimensionInput.addEventListener("input", event => {
     sketchContainer.replaceChildren()
     generateSketchGrid(event.target.value)
+})
+
+shakeButton.addEventListener("click", () => {
+    const sketchDivs = sketchContainer.children
+    for (const sketchDiv of sketchDivs) {
+        sketchDiv.style.backgroundColor = "#bcbdc6"
+    }
 })
 
 generateSketchGrid(16)
